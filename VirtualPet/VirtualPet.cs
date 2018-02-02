@@ -11,10 +11,10 @@ namespace VirtualPet
         // fields
 
         private string animalType = "phoenix";
-        private string name;
-        private bool isHungry = true;
-        private bool isBored = true;
-        private bool isDirty = true;
+        private string name = "Emmalani";
+        private int isHungry;
+        private int isBored;
+        private int isThirsty;
 
 
         // Properties
@@ -22,7 +22,7 @@ namespace VirtualPet
         public string AnimalType
         {
             get { return this.animalType; }
-            
+
         }
 
         public string Name
@@ -30,55 +30,58 @@ namespace VirtualPet
             get { return this.name; }
         }
 
-        public bool IsHungry
+        public int IsHungry
         {
             get { return this.isHungry; }
             set { this.isHungry = value; }
         }
 
-        public bool IsBored
+        public int IsBored
         {
             get { return this.isBored; }
             set { this.isBored = value; }
         }
 
-        public bool IsDirty
+        public int IsThirsty
         {
-            get { return this.isDirty; }
-            set { this.isDirty = value; }
+            get { return this.isThirsty; }
+            set { this.isThirsty = value; }
         }
 
 
         // Constructors
 
-        public VirtualPet ()
+        public VirtualPet()
         {
-            //this.animalType = "phoenix";
-            //this.name = "Emmalani";
+            this.animalType = "phoenix";
+            this.name = "Emmalani";
         }
 
-        public VirtualPet(bool isHungry, bool isBored, bool isDirty)
+        public VirtualPet(int isHungry, int isBored, int isThirsty)
         {
             this.isHungry = isHungry;
             this.isBored = isBored;
-            this.isDirty = isDirty;
+            this.isThirsty = isThirsty;
         }
 
 
         //Methods
 
-        // Do I need to feed Emmalani
+        // Do I need to feed Emmalani?
         public string FeedingTime()
         {
-            if (isHungry == false)
+            if (isHungry >= 10)
             {
-                isHungry = true;
-                return "Emmalani has already been fed.";
+                return "already fed";
 
+            }
+            else if (isHungry > 5)
+            {
+                return "feed half portion";
             }
             else
             {
-                return "Please feed Emmalani.";
+                return "feed full portion";
             }
         }
 
@@ -86,33 +89,56 @@ namespace VirtualPet
 
         public string PlayTime()
         {
-            if (isBored == false)
+            if (isBored >= 10)
             {
-                isBored = true;
                 return "Emmalani does not want to play.";
             }
+            else if (isBored >5)
+            {
+                return "Please let Emmalani out to fly around for 10 minutes.";
+            }
             else
             {
-                return "Please throw Emmalani a stuffed animal.";
+                return "Please let Emmalani out to fly around for 60 minutes.";
             }
+            
         }
 
 
-        // Does Emmalani's next need to be cleaned?
+        // Does Emmalani's nest need to be cleaned?
 
-        public string NestCleaning()
+        public string WateringTime()
         {
-            if (isDirty == false)
+            if (isThirsty >= 10)
             {
-                isDirty = true;
-                return "Emmalani's next is already clean.";
+                
+                return "not thirsty";
+            }
+            else if (isThirsty > 5)
+            {
+                return "give 1 cup of water";
             }
             else
             {
-                return "Please change Emmalani's nesting material.";
+                return "give 1 gallon of water";
             }
 
         }
+
+        //// Tick Method
+
+        //public void Tick()
+        //{
+
+        //}
+
+
+
+
+
+
+        //// To stop program
+        //public string StopProgram;
 
 
 
