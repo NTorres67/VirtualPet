@@ -10,11 +10,12 @@ namespace VirtualPet
     {
         // fields
 
-        private string animalType = "phoenix";
-        private string name = "Emmalani";
+        private string animalType;
+        private string name;
         private bool isHungry = true;
-        private int boredAmount;
-        private int startAmount;
+        private int exerciseLevel = 10;
+        private int boredAmount = 100;
+        private int playAmount = 0;
         private bool isThirsty = true;
 
 
@@ -37,10 +38,22 @@ namespace VirtualPet
             set { this.isHungry = value; }
         }
 
+        public int ExerciseLevel
+        {
+            get { return this.exerciseLevel; }
+            set { this.exerciseLevel = value; }
+        }
+
         public int BoredAmount
         {
             get { return this.boredAmount; }
             set { this.boredAmount = value; }
+        }
+
+        public int PlayAmount
+        {
+            get { return this.playAmount; }
+            set { this.playAmount = value; }
         }
 
         public bool IsThirsty
@@ -54,10 +67,17 @@ namespace VirtualPet
 
         public VirtualPet()
         {
-            this.animalType = "phoenix";
-            this.name = "Emmalani";
+            this.animalType = "I am the mythical phoenix.";
+            this.name = "My name is Emmalani.";
+            this.boredAmount = 100;
         }
 
+        public VirtualPet(string name, string animalType)
+        {
+            this.name = name;
+            this.animalType = animalType;
+        }
+        
         public VirtualPet(bool isHungry, int boredAmount, bool isThirsty)
         {
             this.isHungry = isHungry;
@@ -68,8 +88,15 @@ namespace VirtualPet
 
         //Methods
 
-        // Does Emmalani need to eat?
-        
+        ////Get Name
+
+        //public void Name()
+        //{
+        //    ConsoleWrieLine()
+        //}
+
+        // To Feed
+
         public string FeedingTime()
         {
             if (isHungry == false)
@@ -88,39 +115,57 @@ namespace VirtualPet
             }
         }
 
+        // To increase exercise level
+
+        public void EnergyIncrease()
+        {
+            this.exerciseLevel = exerciseLevel + 3;
+        }
+
+
+        // To decrease exercise level
+        public void EnergyDecrease()
+        {
+            this.exerciseLevel = exerciseLevel - 6;
+        }
         
 
-        // Amount Played
-
-        public void AmountToPlay(int playAmount)
-        {
-            //boredAmount -= playAmount;
-            boredAmount -= playAmount;
+        ////// Amount Played
+        
+        //public void AmountToPlay()
+        //{
+        //    this.boredAmount = boredAmount - playAmount;
+        //    //boredAmount = startAmount - playAmount;
             
-        }
 
-        // Do I need to play with Emmalani?
+        //}
 
-        public string PlayTime()
-        {
-            if (boredAmount >= 10)
-            {
-                return "I do not want to play right now.";
-            }
-            else if (boredAmount >= 5 )
-            {
-                return "Please let me out to fly around for 10 minutes.";
-            }
-            else
-            {
-                return "Please s" +
-                    "et me free.";
-            }
+        //// Coninue playing
+
+        //public string PlayTime()
+        //{
+        //    if (boredAmount >= 100)
+        //    {
+        //        return "I do not want to play right now.";
+
+        //    }
+        //    else if (boredAmount > 50 )
+        //    {
+        //        return "Please let me out to fly around for 10 minutes.";
+        //    }
+        //    else if (boredAmount <= 49 && boredAmount >= 0)
+        //    {
+        //        return "Please set me free.";
+        //    }
+        //    else
+        //    {
+        //        return "";
+        //    }
             
-        }
+        //}
 
 
-        // Does Emmalani need water?
+        // To Water
 
         public string WateringTime()
         {
@@ -142,11 +187,22 @@ namespace VirtualPet
 
         }
 
-        //// Tick Method
+        // Pet Status
+        public void PetStatus()
+        {
+            Console.WriteLine(name);
+            Console.WriteLine(animalType);
+            Console.WriteLine(isHungry);
+            Console.WriteLine(boredAmount);
+            Console.WriteLine(isThirsty);
+        }
+           
+
+        // Tick Method
 
         //public void Tick()
         //{
-
+        //    Random r = new int[] { 1, 2, 3, 4, 5, 6 };
         //}
 
 
