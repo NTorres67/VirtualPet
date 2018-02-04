@@ -13,10 +13,12 @@ namespace VirtualPet
         private string animalType;
         private string name;
         private bool isHungry = true;
-        private int exerciseLevel = 10;
+        private int exerciseLevel = 0;
         private int boredAmount = 100;
         private int playAmount = 0;
         private bool isThirsty = true;
+        private int restLevel = 50;
+
 
 
         // Properties
@@ -62,6 +64,12 @@ namespace VirtualPet
             set { this.isThirsty = value; }
         }
 
+        public int RestLevel
+        {
+            get { return this.restLevel; }
+            set { this.restLevel = value; }
+        }
+
 
         // Constructors
 
@@ -70,6 +78,8 @@ namespace VirtualPet
             this.animalType = "I am the mythical phoenix.";
             this.name = "My name is Emmalani.";
             this.boredAmount = 100;
+            this.exerciseLevel = 100;
+            this.restLevel = 100;
         }
 
         public VirtualPet(string name, string animalType)
@@ -119,14 +129,16 @@ namespace VirtualPet
 
         public void EnergyIncrease()
         {
-            this.exerciseLevel = exerciseLevel + 3;
+            this.exerciseLevel = exerciseLevel + 23;
+            this.restLevel = restLevel - 15;
         }
 
 
         // To decrease exercise level
         public void EnergyDecrease()
         {
-            this.exerciseLevel = exerciseLevel - 6;
+            this.exerciseLevel = exerciseLevel - 16;
+            this.restLevel = restLevel + 20;
         }
         
 
@@ -187,14 +199,29 @@ namespace VirtualPet
 
         }
 
+        // increase need to rest
+
+        public void RestIncrease()
+        {
+            this.restLevel = restLevel + 16;
+            this.exerciseLevel = exerciseLevel - 28;
+        }
+
+        // decrease need to rest
+        public void RestDecrease()
+        {
+            this.restLevel = restLevel - 22;
+            this.exerciseLevel = exerciseLevel - 5;
+        }
+
         // Pet Status
         public void PetStatus()
         {
-            Console.WriteLine(name);
-            Console.WriteLine(animalType);
-            Console.WriteLine(isHungry);
-            Console.WriteLine(boredAmount);
-            Console.WriteLine(isThirsty);
+            Console.WriteLine("");
+            Console.WriteLine("I am hungry. " + isHungry);
+            Console.WriteLine("My energy level is " + exerciseLevel + ".");
+            Console.WriteLine("I am thirsty. " + isThirsty);
+            Console.WriteLine("My need to rest level is " + restLevel + ".");
         }
            
 
