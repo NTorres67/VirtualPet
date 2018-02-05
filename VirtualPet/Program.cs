@@ -25,7 +25,6 @@ namespace VirtualPet
             string waterMe = " ";
 
 
-
             do
             {
                 Console.WriteLine("");
@@ -57,14 +56,14 @@ namespace VirtualPet
                         // declare pet name
                         Console.WriteLine(userVirtualPet.Name);
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
+                        //userVirtualPet.PetStatus();
                         break;
 
                     case 2:
                         // declare pet type
                         Console.WriteLine(userVirtualPet.AnimalType);
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
+                        //userVirtualPet.PetStatus();
                         break;
 
                     case 3:
@@ -74,15 +73,15 @@ namespace VirtualPet
                         feedMe = feedMe.ToLower();
                         Console.WriteLine(userVirtualPet.FeedingTime());
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
+                        //userVirtualPet.PetStatus();
                         break;
 
                     case 4:
                         // To increase exercise level
                         userVirtualPet.EnergyIncrease();
-                        Console.WriteLine("Please exercise me.");
+                        Console.WriteLine(userVirtualPet.PlayTime());
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
+                        //userVirtualPet.PetStatus();
 
                         ////Amount You want to play
                         //Console.WriteLine("Amount to exercise? Please enter a numberical value.");
@@ -93,10 +92,10 @@ namespace VirtualPet
                     case 5:
                         // To decrease exercise level
                         userVirtualPet.EnergyDecrease();
-                        Console.WriteLine("Please allow me to rest.");
+                        Console.WriteLine(userVirtualPet.PlayTime());
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
-
+                        //userVirtualPet.PetStatus();
+                        
                         //    //// Does Emmalani want to play?
                         //    //Console.WriteLine("Do you want to play with me? Please enter a numberical value.");
                         //    //playAmount = int.Parse(Console.ReadLine());
@@ -110,7 +109,7 @@ namespace VirtualPet
                         waterMe = Console.ReadLine();
                         Console.WriteLine(userVirtualPet.WateringTime());
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
+                        //userVirtualPet.PetStatus();
                         break;
 
                     case 7:
@@ -118,7 +117,7 @@ namespace VirtualPet
                         userVirtualPet.RestIncrease();
                         Console.WriteLine("May I please take a nap?");
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
+                        //userVirtualPet.PetStatus();
                         break;
 
                     case 8:
@@ -126,7 +125,7 @@ namespace VirtualPet
                         userVirtualPet.RestDecrease();
                         Console.Write("But I don't want to nap!");
                         Console.WriteLine("");
-                        userVirtualPet.PetStatus();
+                        //userVirtualPet.PetStatus();
                         break;
 
                     
@@ -140,15 +139,16 @@ namespace VirtualPet
                         break;
 
                 }
-                Console.WriteLine("");
-                Console.WriteLine("");
-                
 
+                Console.WriteLine("");
+                userVirtualPet.Tick();
+                //Console.WriteLine(userVirtualPet.PlayTime());
+                userVirtualPet.PetStatus();
 
 
             } while (userInput != 0);
-            
 
+            
 
         }
     }

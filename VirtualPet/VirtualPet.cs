@@ -76,7 +76,7 @@ namespace VirtualPet
         public VirtualPet()
         {
             this.animalType = "I am the mythical phoenix.";
-            this.name = "My name is Emmalani.";
+            this.name = "Aloha! My name is Emmalani.";
             this.boredAmount = 100;
             this.exerciseLevel = 100;
             this.restLevel = 100;
@@ -98,13 +98,7 @@ namespace VirtualPet
 
         //Methods
 
-        ////Get Name
-
-        //public void Name()
-        //{
-        //    ConsoleWrieLine()
-        //}
-
+        
         // To Feed
 
         public string FeedingTime()
@@ -140,41 +134,41 @@ namespace VirtualPet
             this.exerciseLevel = exerciseLevel - 16;
             this.restLevel = restLevel + 20;
         }
-        
+
 
         ////// Amount Played
-        
+
         //public void AmountToPlay()
         //{
         //    this.boredAmount = boredAmount - playAmount;
         //    //boredAmount = startAmount - playAmount;
-            
+
 
         //}
 
         //// Coninue playing
 
-        //public string PlayTime()
-        //{
-        //    if (boredAmount >= 100)
-        //    {
-        //        return "I do not want to play right now.";
+        public string PlayTime()
+        {
+            if (exerciseLevel >= 100)
+            {
+                return "I do not want to play right now.";
 
-        //    }
-        //    else if (boredAmount > 50 )
-        //    {
-        //        return "Please let me out to fly around for 10 minutes.";
-        //    }
-        //    else if (boredAmount <= 49 && boredAmount >= 0)
-        //    {
-        //        return "Please set me free.";
-        //    }
-        //    else
-        //    {
-        //        return "";
-        //    }
-            
-        //}
+            }
+            else if (exerciseLevel > 50)
+            {
+                return "Please let me out to fly around for 10 minutes.";
+            }
+            else if (exerciseLevel <= 49 && boredAmount >= 0)
+            {
+                return "Please set me free.";
+            }
+            else
+            {
+                return "";
+            }
+
+        }
 
 
         // To Water
@@ -217,20 +211,39 @@ namespace VirtualPet
         // Pet Status
         public void PetStatus()
         {
-            Console.WriteLine("");
-            Console.WriteLine("I am hungry. " + isHungry);
+            //Console.WriteLine("");
+            Console.WriteLine("My current status:");
+            //Console.WriteLine("I am hungry. " + isHungry);
             Console.WriteLine("My energy level is " + exerciseLevel + ".");
-            Console.WriteLine("I am thirsty. " + isThirsty);
+            //Console.WriteLine("I am thirsty. " + isThirsty);
             Console.WriteLine("My need to rest level is " + restLevel + ".");
+            Console.WriteLine("");
         }
-           
+
 
         // Tick Method
 
-        //public void Tick()
-        //{
-        //    Random r = new int[] { 1, 2, 3, 4, 5, 6 };
-        //}
+        public void Tick()
+        {
+            //Increase Energy Level
+
+            exerciseLevel = exerciseLevel + 5;
+            restLevel = restLevel - 11;
+
+        }
+
+        ////public void Tick() // NOPE!
+        ////{
+        ////    Random random = new Random();
+        ////    int[] triggerArray = new int[25];
+        ////    for (int t = 0; t < 5; t++)
+        ////    {
+        ////        triggerArray[t] = random.Next(1, 30);
+        ////    }
+            
+        ////}
+
+
 
 
 
