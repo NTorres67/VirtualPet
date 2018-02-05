@@ -16,8 +16,10 @@ namespace VirtualPet
         private int exerciseLevel = 0;
         private int boredAmount = 100;
         private int playAmount = 0;
+        private int sitAmount = 0;
         private bool isThirsty = true;
-        private int restLevel = 50;
+        private int restLevel = 100;
+        private int napTimeAmount = 0;
 
 
 
@@ -78,8 +80,8 @@ namespace VirtualPet
             this.animalType = "I am the mythical phoenix.";
             this.name = "Aloha! My name is Emmalani.";
             this.boredAmount = 100;
-            this.exerciseLevel = 100;
-            this.restLevel = 100;
+            this.exerciseLevel = 200;
+            this.restLevel = 200;
         }
 
         public VirtualPet(string name, string animalType)
@@ -123,16 +125,16 @@ namespace VirtualPet
 
         public void EnergyIncrease()
         {
-            this.exerciseLevel = exerciseLevel + 23;
-            this.restLevel = restLevel - 15;
+            this.exerciseLevel = exerciseLevel + playAmount;
+            this.restLevel = restLevel - 5;
         }
 
 
         // To decrease exercise level
         public void EnergyDecrease()
         {
-            this.exerciseLevel = exerciseLevel - 16;
-            this.restLevel = restLevel + 20;
+            this.exerciseLevel = exerciseLevel - sitAmount;
+            this.restLevel = restLevel + 10;
         }
 
 
@@ -197,15 +199,15 @@ namespace VirtualPet
 
         public void RestIncrease()
         {
-            this.restLevel = restLevel + 16;
-            this.exerciseLevel = exerciseLevel - 28;
+            this.restLevel = restLevel + napTimeAmount;
+            this.exerciseLevel = exerciseLevel - 17;
         }
 
         // decrease need to rest
         public void RestDecrease()
         {
-            this.restLevel = restLevel - 22;
-            this.exerciseLevel = exerciseLevel - 5;
+            this.restLevel = restLevel - napTimeAmount;
+            this.exerciseLevel = exerciseLevel - 11;
         }
 
         // Pet Status
@@ -227,7 +229,7 @@ namespace VirtualPet
         {
             //Increase Energy Level
 
-            exerciseLevel = exerciseLevel + 5;
+            exerciseLevel = exerciseLevel + 50;
             restLevel = restLevel - 11;
 
         }

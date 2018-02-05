@@ -24,6 +24,10 @@ namespace VirtualPet
             string feedMe = " ";
             string waterMe = " ";
 
+            int playAmount = 0;
+            int sitAmount = 0;
+            int napTimeAmount = 0;
+
 
             do
             {
@@ -34,11 +38,13 @@ namespace VirtualPet
                 Console.WriteLine("To get your pets name, type 1");
                 Console.WriteLine("To get your pets animal type, type 2");
                 Console.WriteLine("To feed your pet, type 3");
-                Console.WriteLine("To exercise your pet, type 4 or 5");
+                Console.WriteLine("To increase your pet's energy level, type 4");
+                Console.WriteLine("To decrease your pets's energy level, type 5");
                 //Console.WriteLine("To continue exercising your pet, type 5");
                 //Console.WriteLine("");
                 Console.WriteLine("To water your pet, type 6 ");
-                Console.WriteLine("To determine if rest is needed, type 7 or 8.");
+                Console.WriteLine("To increase your pet's need to rest, type 7.");
+                Console.WriteLine("To decrease your pet's need to rest, type 8.");
                 Console.WriteLine("To quit, type 0");
                 Console.WriteLine("");
                 Console.WriteLine("");
@@ -78,6 +84,8 @@ namespace VirtualPet
 
                     case 4:
                         // To increase exercise level
+                        Console.WriteLine("How much energy would you like increase your pet's energy level by?");
+                        playAmount = int.Parse(Console.ReadLine());
                         userVirtualPet.EnergyIncrease();
                         Console.WriteLine(userVirtualPet.PlayTime());
                         Console.WriteLine("");
@@ -91,6 +99,8 @@ namespace VirtualPet
 
                     case 5:
                         // To decrease exercise level
+                        Console.WriteLine("How much would you like to decrease your pet's energy level by?");
+                        sitAmount = int.Parse(Console.ReadLine());
                         userVirtualPet.EnergyDecrease();
                         Console.WriteLine(userVirtualPet.PlayTime());
                         Console.WriteLine("");
@@ -114,6 +124,8 @@ namespace VirtualPet
 
                     case 7:
                         // increase rest level
+                        Console.WriteLine("How much would you like to increase your pet's need to rest level by?");
+                        napTimeAmount = int.Parse(Console.ReadLine());
                         userVirtualPet.RestIncrease();
                         Console.WriteLine("May I please take a nap?");
                         Console.WriteLine("");
@@ -122,6 +134,8 @@ namespace VirtualPet
 
                     case 8:
                         // decrease rest level
+                        Console.WriteLine("How much would you like to decrease your pet's need to rest level by?");
+                        napTimeAmount = int.Parse(Console.ReadLine());
                         userVirtualPet.RestDecrease();
                         Console.Write("But I don't want to nap!");
                         Console.WriteLine("");
